@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybrogs</title>
+    <link href="https://fonts.cdnfonts.com/css/ninja-naruto" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/midnight-crimson" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/trotes" rel="stylesheet">
+  <style>
+    html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    font-family: 'Ninja Naruto', sans-serif;
+}
+
+.background_video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#BGVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    z-index: -1;
+}
+
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 100px;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 1;
+    position: relative;
+}
+
+.Title {
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.hamburger-menu {
+    position: relative;
+    z-index: 2;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.menu-icon-line {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 8px;
+    z-index: 3;
+}
+
+#menu-toggle:checked ~ .menu {
+    display: block;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 10px 0;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Trotes', sans-serif;
+}
+
+.Bio {
+    position: relative;
+    text-align: center;
+    margin-top: 100px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.Bio_Title {
+    font-family: 'Midnight crimson', sans-serif;
+    font-size: 90px;
+    color: #fff;
+    position: relative;
+    z-index: 3;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                 0 0 10px rgba(255, 255, 255, 0.4),
+                 0 0 15px rgba(255, 255, 255, 0.3),
+                 0 0 20px rgba(255, 255, 255, 0.2),
+                 0 0 25px rgba(255, 255, 255, 0.1);
+}
+
+.fog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0) 100%);
+    filter: blur(10px);
+    animation: fogAnimation 10s infinite linear;
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.Bio_data {
+    font-family: 'Trotes', sans-serif;
+    font-size: 20px;
+    width: 350px;
+    margin-left: 40px;
+}
+
+@keyframes fogAnimation {
+    0% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+    50% {
+        transform: translateX(50%) translateY(50%);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .Title {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 992px) {
+    .Title {
+        font-size: 30px;
+    }
+
+    .Header {
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Title {
+        font-size: 25px;
+    }
+
+    .Header {
+        height: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Title {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    .Header {
+        height: 60px;
+    }
+
+    #BGVideo {
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .Title {
+        font-size: 18px;
+        margin-left: 8px;
+    }
+
+    .Header {
+        height: 50px;
+    }
+}
+
+  </style>
+</head>
+<body>
+    <div class="Header">
+        <p class="Title">Naruto</p>
+        <!-- Hamburger Menu -->
+        <div class="hamburger-menu">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">
+                <div class="menu-icon-line"></div>
+                <div class="menu-icon-line"></div>
+                <div class="menu-icon-line"></div>
+            </label>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Field 1</a></li>
+                    <li><a href="#">Field 2</a></li>
+                    <li><a href="#">Field 3</a></li>
+                    <li><a href="#">Field 4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="background_video">
+        <video autoplay muted loop playsinline id="BGVideo">
+            <source src="https://static.moewalls.com/videos/preview/2024/kid-naruto-and-kurama-preview.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="Bio">
+        <p class="Bio_Title" style="font-family: 'Midnight crimson', sans-serif; font-size: 90px;">Welcome to my Bio</p>
+        <div class="fog"></div>
+    </div>
+    <div class="Bio_data">
+        <p>Name: AnimeMags</p>
+        <p>Occupation: (Former Carder, Cracker, Bypasser, Dumper, Developer)</p>
+    </div>
+</body>
+</html>
